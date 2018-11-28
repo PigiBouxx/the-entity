@@ -40,10 +40,6 @@ print("tueur:",tueur)
 print("survivant:",survivant)   
 
 @client.event
-async def on_ready():
-    await client.change_presence(game=discord.Game(name='SALUT'))
-
-@client.event
 async def on_message(message):
     if message.author == client.user:
         return
@@ -66,5 +62,6 @@ async def on_message(message):
 @client.event
 async def on_ready():
     print('log:',client.user.name)
+    await client.change_presence(game=discord.Game(name='SALUT'))
 
 client.run(os.getenv('TOKEN'))

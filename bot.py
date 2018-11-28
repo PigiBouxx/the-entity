@@ -62,4 +62,4 @@ async def on_message(message):
 async def on_ready():
     print('log:',client.user.name)
 
-client.run("NTE2MzQwMjMxNTA3NjczMDg4.DtyZpA.-yrGE-j4yFGslxl6x5p-W0orjeI")
+client.run(os.environ('TOKEN'))

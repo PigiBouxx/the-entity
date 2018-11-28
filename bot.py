@@ -41,7 +41,7 @@ print("survivant:",survivant)
 
 @client.event
 async def on_ready():
-    await client.send_message(message.channel,'WSH LES RATS, JSUIS LE BEST BOT DU MONDE')
+    await client.change_presence(game=discord.Game(name='SALUT'))
 
 @client.event
 async def on_message(message):

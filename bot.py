@@ -62,4 +62,4 @@ async def on_message(message):
 async def on_ready():
     print('log:',client.user.name)
 
-client.run(os.environ('TOKEN'))
+client.run(os.getenv('TOKEN'))

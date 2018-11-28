@@ -16,8 +16,8 @@ for i in t:
     a = i.replace('\n','')
     perks.append(a)
 
-with open('perks_killer.txt','r',encoding="ISO-8859-1") as f:
-    t = f.readlines()
+with open('perks_killer.txt','r',encoding="ISO-8859-1") as fe:
+    t = fe.readlines()
 for i in t:
     a = i.replace('\n','')
     perkt.append(a)

@@ -40,6 +40,10 @@ print("tueur:",tueur)
 print("survivant:",survivant)   
 
 @client.event
+async def on_ready():
+    await client.send_message(message.channel,'WSH LES RATS, JSUIS LE BEST BOT DU MONDE')
+
+@client.event
 async def on_message(message):
     if message.author == client.user:
         return

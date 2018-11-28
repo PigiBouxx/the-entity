@@ -53,7 +53,8 @@ async def on_message(message):
         await client.send_file(message.channel, ("dea/"+a))      
     elif message.content == "!killer":
         b = choice(tueur)
-        await client.send_file(message.channel,("tueur/"+b))     
+        await client.send_file(message.channel,("tueur/"+b))
+        await client.change_presence(game=discord.Game(name='SALUT'))
     elif message.content == "!survivorperk":
         for i in range(4):
             x = cperks()

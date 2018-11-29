@@ -73,6 +73,7 @@ async def on_message(message):
 @client.event
 async def on_ready():
     print('log:',client.user.name)
+    await client.send_message(message.channel,"BIEN LE BONSOIR")
     await client.change_presence(game=discord.Game(name='Dead by Daylight'))
 
 client.run(os.getenv('TOKEN'))

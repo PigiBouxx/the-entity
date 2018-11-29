@@ -46,15 +46,14 @@ async def on_message(message):
         
     elif message.content == "!survivor":
         a = choice(survivant)
-        await client.send_file(message.channel, ("dea/"+a))      
+        await client.send_file(message.channel,"Pour: "+message.author+("dea/"+a))      
     elif message.content == "!killer":
         b = choice(tueur)
-        await client.send_file(message.channel,("tueur/"+b))
-        await client.change_presence(game=discord.Game(name='Dead by Daylight'))
+        await client.send_file(message.channel,"Pour: "+message.author+("tueur/"+b))
     elif message.content == "!survivorperk":
         while 1:
             if len(tempList) < 4:
-                x = cperkt()
+                x = cperks()
                 if x in tempList:
                     pass
                 else:
@@ -64,7 +63,7 @@ async def on_message(message):
     elif message.content == "!killerperk":
         while 1:
             if len(tempList) < 4:
-                x = cperks()
+                x = cperkt()
                 if x in tempList:
                     pass
                 else:

@@ -74,6 +74,6 @@ async def on_message(message):
 @client.event
 async def on_ready():
     print('log:',client.user.name)
-    await client.change_presence(game=discord.Game(name='Dead by Deadlight (ou bien Fortnite)'))
+    await client.change_presence(game=discord.Game(name='Dead by Deadlight'))
 
 client.run(os.getenv('TOKEN'))

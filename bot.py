@@ -3,6 +3,7 @@ import asyncio
 from random import choice
 import os
 
+
 client = discord.Client()
 
 tueur = []
@@ -30,7 +31,6 @@ def cperkt():
     l = choice(perkt)
     return l
     
-    
 for i in os.listdir("dea"):
     survivant.append(i)
 for t in os.listdir("tueur"):
@@ -38,19 +38,21 @@ for t in os.listdir("tueur"):
 
 print("tueur:",tueur)
 print("survivant:",survivant)   
-tempList = []
 @client.event
 async def on_message(message):
+    tempList = []
     if message.author == client.user:
         return
-        
     elif message.content == "!survivor":
         a = choice(survivant)
-        await client.send_file(message.channel,"Pour: "+message.author+("dea/"+a))      
+        await client.send_message(message.channel,"Pour: "+str(message.author))
+        await client.send_file(message.channel,("dea/"+a))
     elif message.content == "!killer":
         b = choice(tueur)
-        await client.send_file(message.channel,"Pour: "+message.author+("tueur/"+b))
+        await client.send_message(message.channel,"Pour: "+str(message.author))
+        await client.send_file(message.channel,("tueur/"+b))
     elif message.content == "!survivorperk":
+        await client.send_message(message.channel,"Pour: "+str(message.author))
         while 1:
             if len(tempList) < 4:
                 x = cperks()
@@ -58,9 +60,13 @@ async def on_message(message):
                     pass
                 else:
                     tempList.append(x)
-                await client.send_message(message.channel,x)
-        tempList = []
+            else:
+                break
+        for i in tempList:
+            await client.send_message(message.channel,i)
+        tempList=[]
     elif message.content == "!killerperk":
+        await client.send_message(message.channel,"Pour: "+str(message.author))
         while 1:
             if len(tempList) < 4:
                 x = cperkt()
@@ -68,12 +74,15 @@ async def on_message(message):
                     pass
                 else:
                     tempList.append(x)
-                await client.send_message(message.channel,x)
+            else:
+                break
+        for i in tempList:
+            await client.send_message(message.channel,i)
         tempList=[]
 @client.event
 async def on_ready():
     print('log:',client.user.name)
-    await client.send_message(message.channel,"BIEN LE BONSOIR")
     await client.change_presence(game=discord.Game(name='Dead by Daylight'))
+
 
 client.run(os.getenv('TOKEN'))

@@ -38,7 +38,7 @@ for t in os.listdir("tueur"):
 
 print("tueur:",tueur)
 print("survivant:",survivant)   
-
+tempList = []
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -58,6 +58,10 @@ async def on_message(message):
     elif message.content == "!killerperk":
         for i in range(4):
             x = cperkt()
+            if x in tempList:
+                pass
+            else:
+                tempList.append(x)
             await client.send_message(message.channel,x)
 @client.event
 async def on_ready():

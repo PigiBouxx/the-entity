@@ -50,7 +50,7 @@ async def on_message(message):
     elif message.content == "!killer":
         b = choice(tueur)
         await client.send_file(message.channel,("tueur/"+b))
-        await client.change_presence(game=discord.Game(name='SALUT'))
+        await client.change_presence(game=discord.Game(name='Dead by Daylight'))
     elif message.content == "!survivorperk":
         while 1:
             if len(tempList) < 4:

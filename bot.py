@@ -52,10 +52,6 @@ async def on_message(message):
         await client.send_file(message.channel,("tueur/"+b))
         await client.change_presence(game=discord.Game(name='SALUT'))
     elif message.content == "!survivorperk":
-        for i in range(4):
-            x = cperks()
-            await client.send_message(message.channel,x)
-    elif message.content == "!killerperk":
         while 1:
             if len(tempList) < 4:
                 x = cperkt()
@@ -64,6 +60,17 @@ async def on_message(message):
                 else:
                     tempList.append(x)
                 await client.send_message(message.channel,x)
+        tempList = []
+    elif message.content == "!killerperk":
+        while 1:
+            if len(tempList) < 4:
+                x = cperks()
+                if x in tempList:
+                    pass
+                else:
+                    tempList.append(x)
+                await client.send_message(message.channel,x)
+        tempList=[]
 @client.event
 async def on_ready():
     print('log:',client.user.name)

@@ -56,13 +56,14 @@ async def on_message(message):
             x = cperks()
             await client.send_message(message.channel,x)
     elif message.content == "!killerperk":
-        for i in range(4):
-            x = cperkt()
-            if x in tempList:
-                pass
-            else:
-                tempList.append(x)
-            await client.send_message(message.channel,x)
+        while 1:
+            if len(tempList) < 4:
+                x = cperkt()
+                if x in tempList:
+                    pass
+                else:
+                    tempList.append(x)
+                await client.send_message(message.channel,x)
 @client.event
 async def on_ready():
     print('log:',client.user.name)

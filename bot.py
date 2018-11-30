@@ -89,4 +89,4 @@ async def on_ready():
     await client.change_presence(game=discord.Game(name='Dead by Daylight'))
 
 
-client.run("NTE2MzQwMjMxNTA3NjczMDg4.DuHW4Q.pnkV5rZmNiqQrPGxJe8EuzdWZE8")
+client.run(os.getenv('TOKEN'))

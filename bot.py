@@ -66,7 +66,7 @@ async def on_message(message):
             await client.send_message(message.channel,i)
         tempList=[]
     elif message.content == "!killerperk":
-        await client.send_message(message.channel,"Pour: "+str(message.author))
+        await client.send_message(message.channel,"Pour: "+str{author.mention}
         while 1:
             if len(tempList) < 4:
                 x = cperkt()

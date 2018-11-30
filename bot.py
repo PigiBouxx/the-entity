@@ -49,7 +49,7 @@ async def on_message(message):
         await client.send_file(message.channel,("dea/"+a))
     elif message.content == "!killer":
         b = choice(tueur)
-        await client.send_message(message.channel,"Pour: "+str(@message.author))
+        await client.send_message(message.channel,"Pour: "+str(message.author))
         await client.send_file(message.channel,("tueur/"+b))
     elif message.content == "!survivorperk":
         await client.send_message(message.channel,"Pour: "+str(message.author))

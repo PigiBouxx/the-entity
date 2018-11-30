@@ -45,14 +45,14 @@ async def on_message(message):
         return
     elif message.content == "!survivor":
         a = choice(survivant)
-        await client.send_message(message.channel,"Pour: @"+str(message.author))
+        await client.send_message(message.channel,message.author.mention)
         await client.send_file(message.channel,("dea/"+a))
     elif message.content == "!killer":
         b = choice(tueur)
-        await client.send_message(message.channel,"Pour: @"+str(author.author))
+        await client.send_message(message.channel,message.author.mention)
         await client.send_file(message.channel,("tueur/"+b))
     elif message.content == "!survivorperk":
-        await client.send_message(message.channel,"Pour: @"+str(message.author))
+        await client.send_message(message.channel,message.author.mention)
         while 1:
             if len(tempList) < 4:
                 x = cperks()
@@ -62,11 +62,13 @@ async def on_message(message):
                     tempList.append(x)
             else:
                 break
+        msg = ""
         for i in tempList:
-            await client.send_message(message.channel,i)
+            msg = msg +", "+ i
+        await client.send_message(message.channel,msg)
         tempList=[]
     elif message.content == "!killerperk":
-        await client.send_message(message.channel,"Pour: @"+str(message.author))
+        await client.send_message(message.channel,message.author.mention)
         while 1:
             if len(tempList) < 4:
                 x = cperkt()
@@ -76,8 +78,10 @@ async def on_message(message):
                     tempList.append(x)
             else:
                 break
+        msg = ""
         for i in tempList:
-            await client.send_message(message.channel,i)
+            msg = msg +", "+ i
+        await client.send_message(message.channel,msg)
         tempList=[]
 @client.event
 async def on_ready():
